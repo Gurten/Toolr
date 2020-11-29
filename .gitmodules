@@ -4,3 +4,6 @@
 [submodule "TagTool"]
 	path = TagTool
 	url = https://github.com/TheGuardians/TagTool.git
+[submodule "Assembly"]
+	path = Assembly
+	url = https://github.com/XboxChaos/Assembly.git
