@@ -2,12 +2,12 @@
 /// Author: Gurten
 using System;
 using System.Collections.Generic;
-using TagCollectionParserPrototype.Cache.Core;
+using Parsel.Cache.Core;
 using Blamite.IO;
-using TagCollectionParserPrototype.Cache.Types.Phmo;
-using TagCollectionParserPrototype.Cache.MccReach.Phmo;
+using Parsel.Cache.Types.Phmo;
+using Parsel.Cache.MccReach.Phmo;
 
-namespace TagCollectionParserPrototype.Cache.MccReach.Context
+namespace Parsel.Cache.MccReach.Context
 {
     public class MCCReachContext : ICacheContext
     {

@@ -3,12 +3,12 @@
 using Blamite.Blam;
 using Blamite.IO;
 using System;
-using TagCollectionParserPrototype.Schema.Core;
-using TagCollectionParserPrototype.Schema.Phmo;
+using Parsel.Schema.Core;
+using Parsel.Schema.Phmo;
 
-namespace TagCollectionParserPrototype.Schema.MccHalo3.Phmo
+namespace Parsel.Schema.MccHalo3.Phmo
 {
-    class MCCHalo3PhysicsModelMaterial : IPhysicsModelMaterial
+    public class MCCHalo3PhysicsModelMaterial : IPhysicsModelMaterial
     {
         UInt32 IStructSchema.Size => 0xC;
         UInt32 IStructSchema.Alignment => 4;
@@ -17,7 +17,7 @@ namespace TagCollectionParserPrototype.Schema.MccHalo3.Phmo
         DataField<Int16> IPhysicsModelMaterial.PhantomTypeIndex => new DataField<Int16>(0x8);
     }
 
-    class MCCHalo3PhysicsModelPolyhedra : IPhysicsModelPolyhedra, IStructWithDataFixup
+    public class MCCHalo3PhysicsModelPolyhedra : IPhysicsModelPolyhedra, IStructWithDataFixup
     {
         public UInt32 Size => 0xA0;
         UInt32 IStructSchema.Alignment => 0x10;
@@ -47,7 +47,7 @@ namespace TagCollectionParserPrototype.Schema.MccHalo3.Phmo
         }
     }
 
-    class MCCHalo3PhysicsModelLists : IPhysicsModelLists, IStructWithDataFixup
+    public class MCCHalo3PhysicsModelLists : IPhysicsModelLists, IStructWithDataFixup
     {
         UInt32 IStructSchema.Size => 96;
         UInt32 IStructSchema.Alignment => 0x10;
@@ -63,7 +63,7 @@ namespace TagCollectionParserPrototype.Schema.MccHalo3.Phmo
         }
     }
 
-    class MCCHalo3PhysicsModelListShapes : IPhysicsModelListShapes
+    public class MCCHalo3PhysicsModelListShapes : IPhysicsModelListShapes
     {
         UInt32 IStructSchema.Size => 0x20;
         UInt32 IStructSchema.Alignment => 0x4;
@@ -75,7 +75,7 @@ namespace TagCollectionParserPrototype.Schema.MccHalo3.Phmo
 
 
 
-    class PhysicsModelFourVectors : IPhysicsModelFourVectors
+    public class PhysicsModelFourVectors : IPhysicsModelFourVectors
     {
         UInt32 IStructSchema.Size => 0x30;
         UInt32 IStructSchema.Alignment => 0x10;
@@ -85,14 +85,14 @@ namespace TagCollectionParserPrototype.Schema.MccHalo3.Phmo
     }
 
 
-    class PhysicsModelPlaneEquations : IPhysicsModelPlaneEquations
+    public class PhysicsModelPlaneEquations : IPhysicsModelPlaneEquations
     {
         UInt32 IStructSchema.Size => 0x10;
         UInt32 IStructSchema.Alignment => 0x10;
         VectorField<float> IPhysicsModelPlaneEquations.PlaneEquation => new VectorField<float>(0, 4);
     }
 
-    class PhysicsModelNode : IPhysicsModelNode
+    public class PhysicsModelNode : IPhysicsModelNode
     {
         UInt32 IStructSchema.Size => 0xC;
         UInt32 IStructSchema.Alignment => 4;
@@ -104,7 +104,7 @@ namespace TagCollectionParserPrototype.Schema.MccHalo3.Phmo
         DataField<Int16> IPhysicsModelNode.ChildIndex => new DataField<Int16>(10);
     }
 
-    class MCCHalo3PhysicsModelRigidBody : IPhysicsModelRigidBody
+    public class MCCHalo3PhysicsModelRigidBody : IPhysicsModelRigidBody
     {
         UInt32 IStructSchema.Size => 0xc0;
         UInt32 IStructSchema.Alignment => 0x10;
@@ -120,7 +120,7 @@ namespace TagCollectionParserPrototype.Schema.MccHalo3.Phmo
         
     }
 
-    class MCCHalo3PhysicsModel : IPhysicsModel
+    public class MCCHalo3PhysicsModel : IPhysicsModel
     {
         UInt32 IStructSchema.Size => 0x198;
         UInt32 IStructSchema.Alignment => 4;

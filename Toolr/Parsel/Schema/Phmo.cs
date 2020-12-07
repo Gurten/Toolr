@@ -1,17 +1,17 @@
 ﻿/// The Tag Collection Parser Prototype Project
 /// Author: Gurten
 using System;
-using TagCollectionParserPrototype.Schema.Core;
+using Parsel.Schema.Core;
 
-namespace TagCollectionParserPrototype.Schema.Phmo
+namespace Parsel.Schema.Phmo
 {
-    interface IPhysicsModelMaterial : IStructSchema
+    public interface IPhysicsModelMaterial : IStructSchema
     {
         DataField<Blamite.Blam.StringID> Name { get; }
         DataField<Int16> PhantomTypeIndex { get; }
     }
 
-    interface IPhysicsModelPolyhedra : IStructSchema
+    public interface IPhysicsModelPolyhedra : IStructSchema
     {
         DataField<Blamite.Blam.StringID> Name { get; }
         DataField<byte> PhantomTypeIndex { get; }
@@ -27,7 +27,7 @@ namespace TagCollectionParserPrototype.Schema.Phmo
         ISizeAndCapacityField PlaneEquations { get; }
     }
 
-    interface IPhysicsModelLists : IStructSchema
+    public interface IPhysicsModelLists : IStructSchema
     {
         /// Some odd, poorly-named field. Happens to be '128'. 
         DataField<uint> Count { get; }
@@ -36,26 +36,26 @@ namespace TagCollectionParserPrototype.Schema.Phmo
         VectorField<float> AABBCenter { get; }
     }
 
-    interface IPhysicsModelListShapes : IStructSchema
+    public interface IPhysicsModelListShapes : IStructSchema
     {
         DataField<UInt16> ShapeType { get; }
         DataField<UInt16> ShapeIndex { get; }
         DataField<UInt16> ChildShapeCount { get; }
     }
 
-    interface IPhysicsModelFourVectors : IStructSchema
+    public interface IPhysicsModelFourVectors : IStructSchema
     {
         VectorField<float> Xs { get; }
         VectorField<float> Ys { get; }
         VectorField<float> Zs { get; }
     }
 
-    interface IPhysicsModelPlaneEquations : IStructSchema
+    public interface IPhysicsModelPlaneEquations : IStructSchema
     {
         VectorField<float> PlaneEquation { get; }
     }
 
-    interface IPhysicsModelNode : IStructSchema
+    public interface IPhysicsModelNode : IStructSchema
     {
         DataField<Blamite.Blam.StringID> Name { get; }
         DataField<UInt16> Flags { get; }
@@ -64,7 +64,7 @@ namespace TagCollectionParserPrototype.Schema.Phmo
         DataField<Int16> ChildIndex { get; }
     }
 
-    interface IPhysicsModelRigidBody : IStructSchema
+    public interface IPhysicsModelRigidBody : IStructSchema
     {
         DataField<float> BoundingSphereRadius { get; }
         VectorField<byte> MotionType { get; }
@@ -74,7 +74,7 @@ namespace TagCollectionParserPrototype.Schema.Phmo
         DataField<UInt16> ShapeIndex { get; }
     }
 
-    interface IPhysicsModel : IStructSchema, ITagRoot
+    public interface IPhysicsModel : IStructSchema, ITagRoot
     {
         ITagBlockRef<IPhysicsModelRigidBody> RigidBodyTagBlock { get; }
         ITagBlockRef<IPhysicsModelMaterial> MaterialsTagBlock { get; }

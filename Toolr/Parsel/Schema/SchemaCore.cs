@@ -3,10 +3,10 @@
 using Blamite.IO;
 using System;
 using System.IO;
-using TagCollectionParserPrototype.Cache.Core;
-using TagCollectionParserPrototype.TagSerialization;
+using Parsel.Cache.Core;
+using Parsel.TagSerialization;
 
-namespace TagCollectionParserPrototype.Schema.Core
+namespace Parsel.Schema.Core
 {
     /// <summary>
     /// Grouping of size and capacity.
@@ -189,7 +189,7 @@ namespace TagCollectionParserPrototype.Schema.Core
         }
     }
 
-    interface ISizeAndCapacityField : IDataField<UInt32>
+    public interface ISizeAndCapacityField : IDataField<UInt32>
     {
         DataField<UInt32> Size { get; }
         DataField<UInt32> Capacity { get; }

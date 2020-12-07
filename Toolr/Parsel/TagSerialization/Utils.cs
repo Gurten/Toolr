@@ -4,9 +4,9 @@ using Blamite.IO;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using TagCollectionParserPrototype.Schema.Core;
+using Parsel.Schema.Core;
 
-namespace TagCollectionParserPrototype.TagSerialization
+namespace Parsel.TagSerialization
 {
     public static class Utils
     {

@@ -8,20 +8,20 @@ using Blamite.IO;
 using Blamite.Util;
 using NUnit.Framework;
 using SimpleJSON;
-using TagCollectionParserPrototype.Cache.Core;
-using TagCollectionParserPrototype.Cache.MccReach.Context;
-using TagCollectionParserPrototype.Cache.Types.Phmo;
-using TagCollectionParserPrototype.Schema.Phmo;
-using TagCollectionParserPrototype.TagSerialization;
-using TagCollectionParserPrototype.TagSerialization.ContainerBuilder;
+using Parsel.Cache.Core;
+using Parsel.Cache.MccReach.Context;
+using Parsel.Cache.Types.Phmo;
+using Parsel.Schema.Phmo;
+using Parsel.TagSerialization;
+using Parsel.TagSerialization.ContainerBuilder;
 
-namespace AssetReaders.Geometry
+namespace Parsel.AssetReaders.Geometry
 {
     /// <summary>
     /// This class loads, reads, tokenises, and parses a simple file format
     /// designed to store data exported from the Blender modeling program. 
     /// </summary>
-    class BlenderPhmoReader
+    public class BlenderPhmoReader
     {
 
         public string filename;
@@ -56,16 +56,14 @@ namespace AssetReaders.Geometry
         {
             Console.WriteLine("program <halo3|reach> <path to json> <output path>");
         }
-        static void Create(){ //...main
-            IPhysicsModel config = null;
-            ICacheContext context = new MCCReachContext();
-            string jsonPath = "";
+        public static DataBlock[] Build(IPhysicsModel config, ICacheContext context, string jsonPath)
+        { //...main
             BlenderPhmoReader reader = new BlenderPhmoReader(jsonPath);
             var jsonFileRoot = reader.ReadFile();
             if (jsonFileRoot == null)
             {
                 PrintUsage();
-                return;
+                return null;
             }
             Assert.IsNotNull(jsonFileRoot, "Could not parse json file.");
             var shapeDefinitions = jsonFileRoot.AsArray;
@@ -142,27 +140,7 @@ namespace AssetReaders.Geometry
             }
 
             var blocks = sc.Finish();
-
-            string outputPath = "";
-            string tagName = outputPath;
-            outputPath = outputPath.Replace("/", "\\");
-            int lastPathSepIndex = outputPath.LastIndexOf("\\");
-            if (lastPathSepIndex > 0)
-            {
-                Directory.CreateDirectory(outputPath.Substring(0, lastPathSepIndex));
-                tagName = outputPath.Substring(lastPathSepIndex+1);
-            }
-
-            tagName = tagName.Replace(".", "_");
-            TagContainer container = new TagContainer();
-            container.AddTag(new ExtractedTag(new DatumIndex(), 0, CharConstant.FromString("phmo"), tagName));
-            foreach (var b in blocks) { container.AddDataBlock(b); }
-            
-            using (var writer = new EndianWriter(File.Open(outputPath, FileMode.Create, FileAccess.Write), context.Endian))
-            {
-                TagContainerWriter.WriteTagContainer(container, writer);
-            }
-            
+            return blocks;
         }
         static bool AddShape(ContainerBuilder.RootSerializationContext<IPhysicsModel> sc, ICacheContext context, JSONNode node)
         {

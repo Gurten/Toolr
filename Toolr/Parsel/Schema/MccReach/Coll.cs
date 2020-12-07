@@ -1,14 +1,14 @@
 ﻿/// The Tag Collection Parser Prototype Project
 /// Author: Gurten
 using System;
-using TagCollectionParserPrototype.Schema.Core;
-using TagCollectionParserPrototype.Schema.Coll;
+using Parsel.Schema.Core;
+using Parsel.Schema.Coll;
 using Blamite.Blam;
-using TagCollectionParserPrototype.Schema.Coll.region;
-using TagCollectionParserPrototype.Schema.Coll.region.permutation;
-using TagCollectionParserPrototype.Schema.Coll.region.permutation.bsp;
+using Parsel.Schema.Coll.region;
+using Parsel.Schema.Coll.region.permutation;
+using Parsel.Schema.Coll.region.permutation.bsp;
 
-namespace TagCollectionParserPrototype.Schema.MccReach.Coll
+namespace Parsel.Schema.MccReach.Coll
 {
 	class Material : IMaterial
 	{

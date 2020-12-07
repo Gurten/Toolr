@@ -1,6 +1,6 @@
 ﻿/// The Tag Collection Parser Prototype Project
 /// Author: Gurten
-namespace TagCollectionParserPrototype.Cache.Core
+namespace Parsel.Cache.Core
 {
     public interface ICacheContext
     {

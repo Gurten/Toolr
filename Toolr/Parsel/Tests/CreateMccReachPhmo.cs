@@ -8,15 +8,15 @@ using NUnit.Framework;
 using System;
 using System.IO;
 using System.Linq;
-using TagCollectionParserPrototype.Cache.Core;
-using TagCollectionParserPrototype.Cache.MccReach.Context;
-using TagCollectionParserPrototype.Cache.Types.Phmo;
-using TagCollectionParserPrototype.Schema.MccReach.Phmo;
-using TagCollectionParserPrototype.Schema.Phmo;
-using TagCollectionParserPrototype.TagSerialization;
-using TagCollectionParserPrototype.TagSerialization.ContainerBuilder;
+using Parsel.Cache.Core;
+using Parsel.Cache.MccReach.Context;
+using Parsel.Cache.Types.Phmo;
+using Parsel.Schema.MccReach.Phmo;
+using Parsel.Schema.Phmo;
+using Parsel.TagSerialization;
+using Parsel.TagSerialization.ContainerBuilder;
 
-namespace TagCollectionParserPrototype.Tests.CreateMccReachPhmo
+namespace Parsel.Tests.CreateMccReachPhmo
 {
     class Program
     {

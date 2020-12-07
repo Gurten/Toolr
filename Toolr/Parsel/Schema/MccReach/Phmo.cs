@@ -3,13 +3,13 @@
 using Blamite.Blam;
 using Blamite.IO;
 using System;
-using TagCollectionParserPrototype.Schema.Core;
-using TagCollectionParserPrototype.Schema.Phmo;
-using NewGenSizeAndCapacityField = TagCollectionParserPrototype.Schema.Core.NewGenSizeAndCapacityField;
+using Parsel.Schema.Core;
+using Parsel.Schema.Phmo;
+using NewGenSizeAndCapacityField = Parsel.Schema.Core.NewGenSizeAndCapacityField;
 
-namespace TagCollectionParserPrototype.Schema.MccReach.Phmo
+namespace Parsel.Schema.MccReach.Phmo
 {
-    class MCCReachPhysicsModelMaterial : IPhysicsModelMaterial
+    public class MCCReachPhysicsModelMaterial : IPhysicsModelMaterial
     {
         UInt32 IStructSchema.Size => 0x10;
         UInt32 IStructSchema.Alignment => 4;
@@ -18,7 +18,7 @@ namespace TagCollectionParserPrototype.Schema.MccReach.Phmo
         DataField<Int16> IPhysicsModelMaterial.PhantomTypeIndex => new DataField<Int16>(0xc);
     }
 
-    class MCCReachPhysicsModelPolyhedra : IPhysicsModelPolyhedra, IStructWithDataFixup
+    public class MCCReachPhysicsModelPolyhedra : IPhysicsModelPolyhedra, IStructWithDataFixup
     {
         public UInt32 Size => 0xb0;
         UInt32 IStructSchema.Alignment => 0x10;
@@ -48,7 +48,7 @@ namespace TagCollectionParserPrototype.Schema.MccReach.Phmo
         }
     }
 
-    class MCCReachPhysicsModelLists : IPhysicsModelLists, IStructWithDataFixup
+    public class MCCReachPhysicsModelLists : IPhysicsModelLists, IStructWithDataFixup
     {
         UInt32 IStructSchema.Size => 0x90;
         UInt32 IStructSchema.Alignment => 0x10;
@@ -64,7 +64,7 @@ namespace TagCollectionParserPrototype.Schema.MccReach.Phmo
         }
     }
 
-    class MCCReachPhysicsModelListShapes : IPhysicsModelListShapes
+    public class MCCReachPhysicsModelListShapes : IPhysicsModelListShapes
     {
         UInt32 IStructSchema.Size => 0x20;
         UInt32 IStructSchema.Alignment => 0x4;
@@ -74,7 +74,7 @@ namespace TagCollectionParserPrototype.Schema.MccReach.Phmo
         DataField<ushort> IPhysicsModelListShapes.ChildShapeCount => new DataField<UInt16>(0x10);
     }
 
-    class PhysicsModelFourVectors : IPhysicsModelFourVectors
+    public class PhysicsModelFourVectors : IPhysicsModelFourVectors
     {
         UInt32 IStructSchema.Size => 0x30;
         UInt32 IStructSchema.Alignment => 0x10;
@@ -83,13 +83,13 @@ namespace TagCollectionParserPrototype.Schema.MccReach.Phmo
         VectorField<float> IPhysicsModelFourVectors.Zs => new VectorField<float>(0x20, 4);
     }
 
-    class PhysicsModelPlaneEquations : IPhysicsModelPlaneEquations
+    public class PhysicsModelPlaneEquations : IPhysicsModelPlaneEquations
     {
         UInt32 IStructSchema.Size => 0x10;
         UInt32 IStructSchema.Alignment => 0x10;
         VectorField<float> IPhysicsModelPlaneEquations.PlaneEquation => new VectorField<float>(0, 4);
     }
-    class PhysicsModelNode : IPhysicsModelNode
+    public class PhysicsModelNode : IPhysicsModelNode
     {
         UInt32 IStructSchema.Size => 0xC;
         UInt32 IStructSchema.Alignment => 4;
@@ -100,7 +100,7 @@ namespace TagCollectionParserPrototype.Schema.MccReach.Phmo
         DataField<Int16> IPhysicsModelNode.SiblingIndex => new DataField<Int16>(8);
         DataField<Int16> IPhysicsModelNode.ChildIndex => new DataField<Int16>(10);
     }
-    class MCCReachPhysicsModelRigidBody : IPhysicsModelRigidBody
+    public class MCCReachPhysicsModelRigidBody : IPhysicsModelRigidBody
     {
         UInt32 IStructSchema.Size => 208;
         UInt32 IStructSchema.Alignment => 4;
@@ -113,7 +113,7 @@ namespace TagCollectionParserPrototype.Schema.MccReach.Phmo
         DataField<UInt16> IPhysicsModelRigidBody.ShapeIndex => new DataField<UInt16>(0xAA);
     }
 
-    class MCCReachPhysicsModel : IPhysicsModel
+    public class MCCReachPhysicsModel : IPhysicsModel
     {
         UInt32 IStructSchema.Size => 412;
         UInt32 IStructSchema.Alignment => 4;

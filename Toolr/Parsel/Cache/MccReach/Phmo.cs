@@ -1,10 +1,10 @@
 ﻿/// The Tag Collection Parser Prototype Project
 /// Author: Gurten
 using System;
-using TagCollectionParserPrototype.Cache.Core;
-using TagCollectionParserPrototype.Cache.Types.Phmo;
+using Parsel.Cache.Core;
+using Parsel.Cache.Types.Phmo;
 
-namespace TagCollectionParserPrototype.Cache.MccReach.Phmo
+namespace Parsel.Cache.MccReach.Phmo
 {
     public class PhysicsModelShapeTypes : IPhysicsModelShapeTypes
     {

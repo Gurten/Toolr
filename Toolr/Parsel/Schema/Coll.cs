@@ -1,16 +1,16 @@
 ﻿/// The Tag Collection Parser Prototype Project
 /// Author: Gurten
 using System;
-using TagCollectionParserPrototype.Schema.Core;
+using Parsel.Schema.Core;
 
-namespace TagCollectionParserPrototype.Schema.Coll
+namespace Parsel.Schema.Coll
 {
-    interface IMaterial : IStructSchema
+    public interface IMaterial : IStructSchema
     {
         DataField<Blamite.Blam.StringID> Name { get; }
     }
 
-    interface IRegion : IStructSchema
+    public interface IRegion : IStructSchema
     {
         DataField<Blamite.Blam.StringID> Name { get; }
 
@@ -19,7 +19,7 @@ namespace TagCollectionParserPrototype.Schema.Coll
 
     namespace region
     {
-        interface IPermutation : IStructSchema
+        public interface IPermutation : IStructSchema
         {
             DataField<Blamite.Blam.StringID> Name { get; }
             ITagBlockRef<permutation.IBSP> BSPs { get; }
@@ -27,7 +27,7 @@ namespace TagCollectionParserPrototype.Schema.Coll
 
         namespace permutation
         {
-            interface IBSP : IStructSchema
+            public interface IBSP : IStructSchema
             {
                 DataField<Int16> NodeIndex { get; }
 				ITagBlockRef<bsp.IBSP3DNode> BSP3DNodes { get; }
@@ -42,7 +42,7 @@ namespace TagCollectionParserPrototype.Schema.Coll
 
             namespace bsp
             {
-				interface IBSP3DNode : IStructSchema
+				public interface IBSP3DNode : IStructSchema
 				{
 					// These fields can be compressed. Often appear as 24-bit integers in the cache.
 					VectorField<byte> BackChild { get; }
@@ -50,12 +50,12 @@ namespace TagCollectionParserPrototype.Schema.Coll
 					DataField<Int16> PlaneIndex { get; }
 				}
 
-				interface IPlane : IStructSchema
+				public interface IPlane : IStructSchema
 				{
 					VectorField<float> EquationIJKD { get; }
 				}
 
-				interface ILeafNode : IStructSchema
+				public interface ILeafNode : IStructSchema
 				{
 					DataField<Int16> Flags { get; }
 					DataField<Int16> BSP2DReferenceCount { get; }
@@ -63,7 +63,7 @@ namespace TagCollectionParserPrototype.Schema.Coll
 					DataField<Int16> FirstBSP2DReference { get; }
 				}
 
-				interface IBSP2DReference : IStructSchema
+				public interface IBSP2DReference : IStructSchema
 				{
 					// Something about the plane is used to disregard on axis 
 					// of 3D BSP to move the traversal into 2D BSP. The rules
@@ -72,14 +72,14 @@ namespace TagCollectionParserPrototype.Schema.Coll
 					DataField<Int16> BSP2DNodeIndex { get; }
 				}
 
-				interface IBSP2DNode : IStructSchema
+				public interface IBSP2DNode : IStructSchema
 				{
 					VectorField<float> Plane2DEquationIJD { get; }
 					DataField<Int16> LeftChild { get; }
 					DataField<Int16> RightChild { get; }
 				}
 
-				interface ISurface : IStructSchema
+				public interface ISurface : IStructSchema
 				{
 					DataField<Int16> PlaneIndex { get; }
 					DataField<Int16> FirstEdgeIndex { get; }
@@ -88,7 +88,7 @@ namespace TagCollectionParserPrototype.Schema.Coll
 					DataField<UInt16> Flags { get; }
 				}
 
-				interface IEdge : IStructSchema
+				public interface IEdge : IStructSchema
 				{
 					DataField<Int16> StartVertexIndex { get; }
 					DataField<Int16> EndVertexIndex { get; }
@@ -98,7 +98,7 @@ namespace TagCollectionParserPrototype.Schema.Coll
 					DataField<Int16> RightSurfaceIndex { get; }
 				}
 
-				interface IVertex : IStructSchema
+				public interface IVertex : IStructSchema
 				{
 					VectorField<float> PointXYZ { get; }
 					DataField<Int16> FirstEdgeIndex { get; }
@@ -107,7 +107,7 @@ namespace TagCollectionParserPrototype.Schema.Coll
         }
     }
 
-	interface IPathFindingSphere : IStructSchema
+	public interface IPathFindingSphere : IStructSchema
 	{
 		DataField<Int16> NodeIndex { get; }
 		DataField<UInt16> Flags { get; }
@@ -115,7 +115,7 @@ namespace TagCollectionParserPrototype.Schema.Coll
 		DataField<float> SphereRadius { get;  }
 	}
 
-	interface INode : IStructSchema 
+	public interface INode : IStructSchema 
 	{
 		DataField<Blamite.Blam.StringID> Name { get; }
 		DataField<Int16> Unknown { get; }
@@ -125,7 +125,7 @@ namespace TagCollectionParserPrototype.Schema.Coll
 	}
 
 
-	interface ICollisionModel : IStructSchema, ITagRoot
+	public interface ICollisionModel : IStructSchema, ITagRoot
     {
         ITagBlockRef<IMaterial> Materials { get; }
         ITagBlockRef<IRegion> Regions { get; }

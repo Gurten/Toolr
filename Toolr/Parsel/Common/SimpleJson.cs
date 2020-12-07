@@ -28,7 +28,7 @@
  * - There are only 3 types: arrays(JSONArray), objects(JSONClass) and values(JSONData)
  * - provides "casting" properties to easily convert to / from those types:
  *   int / float / double / bool
- * - provides a common interface for each node so no explicit casting is required.
+ * - provides a common public interface for each node so no explicit casting is required.
  * - the parser try to avoid errors, but if malformed JSON is parsed the result is undefined
  * 
  * 
@@ -65,7 +65,7 @@ namespace SimpleJSON
 
     public class JSONNode
     {
-        #region common interface
+        #region common public interface
         public virtual void Add(string aKey, JSONNode aItem) { }
         public virtual JSONNode this[int aIndex] { get { return null; } set { } }
         public virtual JSONNode this[string aKey] { get { return null; } set { } }
@@ -101,7 +101,7 @@ namespace SimpleJSON
             return "JSONNode";
         }
 
-        #endregion common interface
+        #endregion common public interface
 
         #region typecasting properties
         public virtual int AsInt

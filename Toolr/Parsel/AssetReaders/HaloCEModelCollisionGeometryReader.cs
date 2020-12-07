@@ -5,13 +5,13 @@ using System.IO;
 using System.Linq;
 using Blamite.Blam;
 using Blamite.Injection;
-using TagCollectionParserPrototype.Cache.Core;
-using TagCollectionParserPrototype.Schema.Coll;
-using TagCollectionParserPrototype.Schema.Coll.region;
-using TagCollectionParserPrototype.Schema.Coll.region.permutation;
-using TagCollectionParserPrototype.TagSerialization.ContainerBuilder;
+using Parsel.Cache.Core;
+using Parsel.Schema.Coll;
+using Parsel.Schema.Coll.region;
+using Parsel.Schema.Coll.region.permutation;
+using Parsel.TagSerialization.ContainerBuilder;
 
-namespace AssetReaders.Geometry
+namespace Parsel.AssetReaders.Geometry
 {
     class CollisionGeometryBuilder
     {

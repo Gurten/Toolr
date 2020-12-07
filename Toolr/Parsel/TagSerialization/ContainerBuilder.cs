@@ -5,11 +5,11 @@ using Blamite.IO;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using TagCollectionParserPrototype.Cache.Core;
-using TagCollectionParserPrototype.Schema.Core;
+using Parsel.Cache.Core;
+using Parsel.Schema.Core;
 
 
-namespace TagCollectionParserPrototype.TagSerialization.ContainerBuilder
+namespace Parsel.TagSerialization.ContainerBuilder
 {
     public class ContainerBuilder
     {
