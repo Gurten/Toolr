@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using Newtonsoft.Json;
 using NSubstitute;
 using TagTool.Cache;
 using TagTool.Cache.Gen3;
 using TagTool.Cache.HaloOnline;
 using TagTool.Tags;
 using TagTool.Tags.Definitions;
+
 
 namespace Toolr.Details
 {
@@ -35,6 +37,14 @@ namespace Toolr.Details
             cmd.Execute(new System.Collections.Generic.List<string> { input.AbsolutePath, "" });
 
             Console.WriteLine("Successfully ran ImportCollisionGeometryCommand and obtained collision model" + retrievedModel.ToString());
+
+            var jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(retrievedModel, Formatting.Indented,
+                new JsonSerializerSettings
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                });
+            Console.WriteLine(jsonString);
+
         }
     }
 }
